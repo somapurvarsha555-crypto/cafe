@@ -76,26 +76,4 @@ function validateFeedback() {
     return false;
   }
 
-  // Create feedback content
-  let feedbackText =
-    "Feedback Details\n" +
-    "-----------------\n" +
-    "Name: " + name + "\n" +
-    "Email: " + email + "\n" +
-    "Mobile: " + mobile + "\n" +
-    "Message: " + message + "\n";
-
-  // Create document
-  let blob = new Blob([feedbackText], { type: "text/plain" });
-  let link = document.createElement("a");
-
-  link.href = URL.createObjectURL(blob);
-  link.download = "feedback.txt";
-  link.click();
-
-  document.getElementById("feedbackMsg").innerText =
-    "Feedback saved successfully!";
-
-  return false; // prevent page refresh
-}
 
