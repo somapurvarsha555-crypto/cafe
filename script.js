@@ -55,13 +55,14 @@ function validateFeedback() {
   let mobile = document.getElementById("mobile").value;
   let message = document.getElementById("message").value;
 
+  // Validation
   if (name === "") {
     alert("Name is required");
     return false;
   }
 
   if (!email.includes("@")) {
-    alert("Enter a valid email");
+    alert("Enter valid email");
     return false;
   }
 
@@ -75,9 +76,26 @@ function validateFeedback() {
     return false;
   }
 
-  document.getElementById("feedbackMsg").innerText =
-    "Thank you for your feedback!";
-  return false;
-}
+  // Create feedback content
+  let feedbackText =
+    "Feedback Details\n" +
+    "-----------------\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Mobile: " + mobile + "\n" +
+    "Message: " + message + "\n";
 
+  // Create document
+  let blob = new Blob([feedbackText], { type: "text/plain" });
+  let link = document.createElement("a");
+
+  link.href = URL.createObjectURL(blob);
+  link.download = "feedback.txt";
+  link.click();
+
+  document.getElementById("feedbackMsg").innerText =
+    "Feedback saved successfully!";
+
+  return false; // prevent page refresh
+}
 
