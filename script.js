@@ -49,31 +49,7 @@ function updateCart() {
   document.getElementById("discount").innerText = "Discount: ₹" + discount.toFixed(2);
   document.getElementById("total").innerText = "Grand Total: ₹" + total.toFixed(2);
 }
-function validateFeedback() {
-  let name = document.getElementById("fname").value;
-  let email = document.getElementById("email").value;
-  let mobile = document.getElementById("mobile").value;
-  let message = document.getElementById("message").value;
 
-  // Validation
-  if (name === "") {
-    alert("Name is required");
-    return false;
-  }
 
-  if (!email.includes("@")) {
-    alert("Enter valid email");
-    return false;
-  }
-
-  if (mobile.length !== 10 || isNaN(mobile)) {
-    alert("Enter valid 10-digit mobile number");
-    return false;
-  }
-
-  if (message === "") {
-    alert("Feedback cannot be empty");
-    return false;
-  }
 
 
